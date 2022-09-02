@@ -24,8 +24,21 @@ describe("Users", () => {
   });
 
   it("GET /users/:id", () => {
-    return request.get(`users/2838?access-token=${TOKEN}`).then((res) => {
-      expect(res.body.id).to.be.eq(2838);
+    return request.get(`users/2828?access-token=${TOKEN}`).then((res) => {
+      expect(res.body.id).to.be.eq(2828);
+    });
+  });
+
+  it("GET /users with query parameters", () => {
+    const url = `users?access-token=${TOKEN}&page=8&gender=female&status=active`;
+
+    return request.get(url).then((res) => {
+      expect(res.body).to.not.be.empty;
+      //console.log(res.body);
+      res.body.forEach((data) => {
+        expect(data.gender).to.eq("female");
+        expect(data.status).to.eq("active");
+      });
     });
   });
 });
