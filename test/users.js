@@ -115,7 +115,7 @@ describe("Users", () => {
       });
   });
 
-  it.only("DEETE /users", () => {
+  it("DEETE /users", () => {
     const message = { message: "Resource not found" };
     return request
       .delete("users/3505")
