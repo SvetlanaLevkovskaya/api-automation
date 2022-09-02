@@ -116,10 +116,12 @@ describe("Users", () => {
   });
 
   it.only("DEETE /users", () => {
+    const message = { message: "Resource not found" };
     return request
       .delete("users/3505")
       .set("Authorization", `Barer ${TOKEN}`)
       .then((res) => {
+        expect(res.body).to.deep.include(message)
         expect(res.body.message).to.eq("Resource not found");
         expect(res.statusCode).to.eq(404);
       });
