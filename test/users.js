@@ -1,5 +1,6 @@
 import supertest from "supertest";
 import { expect } from "chai";
+import { createRandomUser } from "../helper/user_helper.js";
 
 const request = supertest("https://gorest.co.in/public/v2/");
 
@@ -7,6 +8,8 @@ const TOKEN =
   "79e27860fdc4558df908c73900abb42d520fb97d3ee56efd51dc7d000a0c857c";
 
 describe("Users", () => {
+
+
   it("GET /users", (done) => {
     request.get(`users?access-token=${TOKEN}`).end((err, res) => {
       //console.log(err);
@@ -24,8 +27,8 @@ describe("Users", () => {
   });
 
   it("GET /users/:id", () => {
-    return request.get(`users/2828?access-token=${TOKEN}`).then((res) => {
-      expect(res.body.id).to.be.eq(2828);
+    return request.get("users/1506?access-token=${TOKEN}").then((res) => {
+      expect(res.body.id).to.be.eq(1506);
     });
   });
 
@@ -106,7 +109,7 @@ describe("Users", () => {
       name: `sveta-${Math.floor(Math.random() * 855)}`,
     };
     return request
-      .put("/users/3511")
+      .put("/users/1506")
       .set("Authorization", `Bearer ${TOKEN}`)
       .send(data)
       .then((res) => {
@@ -115,10 +118,10 @@ describe("Users", () => {
       });
   });
 
-  it("DEETE /users", () => {
+  it("DELETE /users", () => {
     const message = { message: "Resource not found" };
     return request
-      .delete("users/3505")
+      .delete("users/1506")
       .set("Authorization", `Barer ${TOKEN}`)
       .then((res) => {
         expect(res.body).to.deep.include(message)

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeuot 5000"
+    "test": "mocha --timeout 5000"
   },
   "type": "module",
   "keywords": [],
@@ -14,13 +14,11 @@
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.13",
     "@babel/node": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "@babel/register": "^7.18.9",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
     "supertest": "^6.2.4"
   }
- 
 }
-
- 

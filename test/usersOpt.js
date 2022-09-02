@@ -6,7 +6,7 @@ const request = supertest("https://gorest.co.in/public/v2/");
 const TOKEN =
   "79e27860fdc4558df908c73900abb42d520fb97d3ee56efd51dc7d000a0c857c";
 
-describe.only("Users", () => {
+describe("Users", () => {
   let userId;
   describe("POST", () => {
     it(" /users", () => {
