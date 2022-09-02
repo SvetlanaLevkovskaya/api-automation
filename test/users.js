@@ -114,4 +114,14 @@ describe("Users", () => {
         expect(res.body).to.deep.include(data);
       });
   });
+
+  it.only("DEETE /users", () => {
+    return request
+      .delete("users/3505")
+      .set("Authorization", `Barer ${TOKEN}`)
+      .then((res) => {
+        expect(res.body.message).to.eq("Resource not found");
+        expect(res.statusCode).to.eq(404);
+      });
+  });
 });
