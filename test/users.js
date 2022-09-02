@@ -64,7 +64,7 @@ describe("Users", () => {
       });
   });
 
-  it("POST /users - negative email", () => {
+  it.skip("POST /users - negative email", () => {
     const data = {
       email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
       name: "svetlana",
@@ -82,7 +82,7 @@ describe("Users", () => {
       });
   });
 
-  it("POST /users - negative gender", () => {
+  it.skip("POST /users - negative gender", () => {
     const data = {
       email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
       name: "svetlana",
@@ -96,6 +96,21 @@ describe("Users", () => {
       .send(data)
       .then((res) => {
         data.gender = "male";
+        expect(res.body).to.deep.include(data);
+      });
+  });
+
+  it("PUT /users/:id", () => {
+    const data = {
+      status: "active",
+      name: `sveta-${Math.floor(Math.random() * 855)}`,
+    };
+    return request
+      .put("/users/3511")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send(data)
+      .then((res) => {
+        console.log(res.body);
         expect(res.body).to.deep.include(data);
       });
   });
