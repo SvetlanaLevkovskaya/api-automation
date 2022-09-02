@@ -16,4 +16,16 @@ describe("Users", () => {
       done();
     });
   });
+
+  it("GET /users", () => {
+    return request.get(`users?access-token=${TOKEN}`).then((res) => {
+      expect(res.body).to.not.be.empty;
+    });
+  });
+
+  it("GET /users/:id", () => {
+    return request.get(`users/2838?access-token=${TOKEN}`).then((res) => {
+      expect(res.body.id).to.be.eq(2838);
+    });
+  });
 });
