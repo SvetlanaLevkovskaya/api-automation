@@ -41,4 +41,62 @@ describe("Users", () => {
       });
     });
   });
+
+  it("POST /users", () => {
+    const data = {
+      email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
+      name: "svetlana",
+      gender: "female",
+      status: "active",
+    };
+
+    return request
+      .post("users")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send(data)
+      .then((res) => {
+        console.log(res.body);
+        expect(res.body).to.deep.include(data);
+        expect(res.body.email).to.eq(data.email);
+        expect(res.body.status).to.eq(data.status);
+        expect(res.body.gender).to.eq(data.gender);
+        expect(res.body.name).to.eq(data.name);
+      });
+  });
+
+  it("POST /users - negative email", () => {
+    const data = {
+      email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
+      name: "svetlana",
+      gender: "female",
+      status: "active",
+    };
+
+    return request
+      .post("users")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send(data)
+      .then((res) => {
+        data.email = "test@gmail.com";
+        expect(res.body).to.deep.include(data);
+      });
+  });
+
+  it("POST /users - negative gender", () => {
+    const data = {
+      email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
+      name: "svetlana",
+      gender: "female",
+      status: "active",
+    };
+
+    return request
+      .post("users")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send(data)
+      .then((res) => {
+        data.gender = "male";
+        expect(res.body).to.deep.include(data);
+      });
+  });
 });
