@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 5000"
+    "test": "mocha --timeout 5000",
+    "test-html": "mocha --timeout 5000 --reporter mochawesome"
   },
   "type": "module",
   "keywords": [],
@@ -20,10 +21,10 @@
     "@faker-js/faker": "^7.5.0",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3",
     "supertest": "^6.2.4"
   },
   "dependencies": {
-    "dotenv": "^16.0.2",
-    "faker": "^6.6.6"
+    "dotenv": "^16.0.2"
   }
 }
