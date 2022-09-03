@@ -1,4 +1,5 @@
 import supertest from "supertest";
+import { faker } from "@faker-js/faker";
 
 const request = supertest("https://gorest.co.in/public/v2/");
 
@@ -7,8 +8,8 @@ const TOKEN =
 
 export const createRandomUser = async () => {
   const userData = {
-    email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
-    name: "svetlana",
+    email: faker.internet.email(),
+    name: faker.name.firstName(),
     gender: "female",
     status: "active",
   };

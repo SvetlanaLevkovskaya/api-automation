@@ -1,8 +1,7 @@
-import supertest from "supertest";
+import request from "../config/common.js";
 import { expect } from "chai";
 import { createRandomUser } from "../helper/user_helper.js";
-
-const request = supertest("https://gorest.co.in/public/v2/");
+import { faker } from "@faker-js/faker";
 
 const TOKEN =
   "79e27860fdc4558df908c73900abb42d520fb97d3ee56efd51dc7d000a0c857c";
@@ -17,8 +16,8 @@ describe("User Posts", () => {
   it("POST /posts", async () => {
     const data = {
       user_id: userId,
-      title: "Svetlana Title",
-      body: "Svetlana blog post",
+      title: faker.lorem.sentence(),
+      body: faker.lorem.paragraph(),
     };
 
     const postRes = await request
@@ -58,7 +57,7 @@ describe("User Posts", () => {
       expect(postRes.body.message).to.eq("Authentication failed");
     });
 
-    it.only("422 Validation failed", async () => {
+    it("422 Validation failed", async () => {
       const data = {
         user_id: userId,
         title: "Svetlana Title",
