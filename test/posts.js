@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import request from "../config/common.js";
 import { expect } from "chai";
-import { createRandomUser } from "../helper/user_helper.js";
+import { createRandomUserWithFaker } from "../helper/user_helper0.js";
 import { faker } from "@faker-js/faker";
 
 const TOKEN = process.env.USER_TOKEN;
@@ -11,7 +11,8 @@ describe("User Posts", () => {
   let postId, userId;
 
   before(async () => {
-    userId = await createRandomUser();
+    //userId = await createRandomUser();
+    userId = await createRandomUserWithFaker();
   });
 
   it("POST /posts", async () => {
@@ -34,10 +35,10 @@ describe("User Posts", () => {
 
   it("GET /posts/:id", async () => {
     const myposts = await request
-      //.get("posts/1333")
       .get(`posts/${postId}`)
-      .set("Authorization", `Bearer${TOKEN}`)
-      .expect(404);
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .expect(200);
+      
     //console.log("userId", myposts.body.user_id);
     //console.log("postId ", myposts.body.id);
   });
@@ -72,6 +73,7 @@ describe("User Posts", () => {
 
       console.log(postRes.statusCode);
       console.log(postRes.body[0].message);
+      //console.log(postRes.body);
       expect(postRes.statusCode).to.eq(422);
       expect(postRes.body[0].field).to.eq("body");
       expect(postRes.body[0].message).to.eq("can't be blank");

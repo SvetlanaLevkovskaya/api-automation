@@ -10,7 +10,7 @@ describe("Users", () => {
   describe("POST", () => {
     it(" /users", async() => {
       const data = {
-        email: `test-${Math.floor(Math.random() * 855)}@gmail.com`,
+        email: `test+${Math.floor(Math.random() * 855)}@gmail.com`,
         name: "svetlana",
         gender: "female",
         status: "active",
@@ -40,6 +40,7 @@ describe("Users", () => {
       return request
         .get(`users/${userId}?access-token=${TOKEN}`)
         .then((res) => {
+          console.log(res.body.id)
           expect(res.body.id).to.be.eq(userId);
         });
     });
@@ -69,7 +70,7 @@ describe("Users", () => {
         .set("Authorization", `Bearer ${TOKEN}`)
         .send(data)
         .then((res) => {
-          console.log(res.body);
+          console.log(res.body.id);
           expect(res.body).to.deep.include(data);
         });
     });

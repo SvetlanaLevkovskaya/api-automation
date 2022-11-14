@@ -1,41 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="14.5040" tests="19" failures="0" skipped="9">
-  <testsuite name="Root Suite" timestamp="2022-09-03T14:12:44" tests="0" time="0.0000" failures="0">
+<testsuites name="Mocha Tests" time="5.2640" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2022-11-14T19:18:40" tests="0" time="0.0000" failures="0">
   </testsuite>
-  <testsuite name="User Posts" timestamp="2022-09-03T14:12:44" tests="2" file="E:\API-automatuion\test\posts.js" time="0.0000" failures="0">
-    <testcase name="User Posts POST /posts" time="1.1680" classname="POST /posts">
+  <testsuite name="User Posts" timestamp="2022-11-14T19:18:40" tests="2" file="D:\Documents\GitHub\api-automation\test\posts.js" time="0.0000" failures="0">
+    <testcase name="User Posts POST /posts" time="1.5490" classname="POST /posts">
     </testcase>
-    <testcase name="User Posts GET /posts/:id" time="3.2030" classname="GET /posts/:id">
-    </testcase>
-  </testsuite>
-  <testsuite name="Negative tests" timestamp="2022-09-03T14:12:49" tests="2" file="E:\API-automatuion\test\posts.js" time="2.3670" failures="0">
-    <testcase name="User Posts Negative tests 401 Authentication" time="1.6180" classname="401 Authentication">
-    </testcase>
-    <testcase name="User Posts Negative tests 422 Validation failed" time="0.7480" classname="422 Validation failed">
+    <testcase name="User Posts GET /posts/:id" time="0.7630" classname="GET /posts/:id">
     </testcase>
   </testsuite>
-  <testsuite name="Users" timestamp="2022-09-03T14:12:52" tests="9" file="E:\API-automatuion\test\users.js" time="0.0000" failures="0">
-  </testsuite>
-  <testsuite name="Users" timestamp="2022-09-03T14:12:52" tests="0" file="E:\API-automatuion\test\usersOpt.js" time="0.0000" failures="0">
-  </testsuite>
-  <testsuite name="POST" timestamp="2022-09-03T14:12:52" tests="1" file="E:\API-automatuion\test\usersOpt.js" time="0.8710" failures="0">
-    <testcase name="Users POST  /users" time="0.8690" classname=" /users">
+  <testsuite name="Negative tests" timestamp="2022-11-14T19:18:43" tests="2" file="D:\Documents\GitHub\api-automation\test\posts.js" time="2.3470" failures="0">
+    <testcase name="User Posts Negative tests 401 Authentication" time="0.7240" classname="401 Authentication">
     </testcase>
-  </testsuite>
-  <testsuite name="GET" timestamp="2022-09-03T14:12:53" tests="3" file="E:\API-automatuion\test\usersOpt.js" time="2.5860" failures="0">
-    <testcase name="Users GET /users" time="0.8240" classname="/users">
-    </testcase>
-    <testcase name="Users GET /users/:id" time="0.7040" classname="/users/:id">
-    </testcase>
-    <testcase name="Users GET /users with query parameters" time="1.0570" classname="/users with query parameters">
-    </testcase>
-  </testsuite>
-  <testsuite name="PUT" timestamp="2022-09-03T14:12:55" tests="1" file="E:\API-automatuion\test\usersOpt.js" time="2.0690" failures="0">
-    <testcase name="Users PUT /users/:id" time="2.0690" classname="/users/:id">
-    </testcase>
-  </testsuite>
-  <testsuite name="DELETE" timestamp="2022-09-03T14:12:57" tests="1" file="E:\API-automatuion\test\usersOpt.js" time="1.5620" failures="0">
-    <testcase name="Users DELETE /users" time="1.5620" classname="/users">
+    <testcase name="User Posts Negative tests 422 Validation failed" time="1.6220" classname="422 Validation failed">
     </testcase>
   </testsuite>
 </testsuites>

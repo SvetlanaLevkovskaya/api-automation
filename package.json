@@ -7,7 +7,6 @@
     "test": "mocha --timeout 5000",
     "test-html": "mocha --timeout 5000 --reporter mochawesome",
     "test-junit": "mocha --timeout 5000 --reporter mocha-junit-reporter"
-
   },
   "type": "module",
   "keywords": [],
